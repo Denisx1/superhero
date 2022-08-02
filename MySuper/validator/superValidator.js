@@ -5,8 +5,8 @@ const newHeroicJoiSchema = Joi.object({
     realname: Joi.string().min(2).max(50).trim(),
     origin_description: Joi.string().min(2).max(600).trim(),
     superpowers: Joi.string().min(2).max(200).trim(),
-    catch_phares: Joi.string().trim(),
-    images: Joi.boolean()
+    catch_phrase: Joi.string(),
+    image: Joi.boolean()
 })
 
 module.exports = {

@@ -1,0 +1,26 @@
+<h1>Hero Page</h1>
+
+{{#if heroes.length}}
+<ul>
+    {{#each heroes}}
+    <li class="Hero">
+        <form action="/complete" method="POST"></form>
+            <label>
+                {{#if image}}
+                <input type="check box" >
+                <span class="completed">{{nickname}}</span>
+                {{else}}
+                <input type="checkbox">
+                <span>{{nickname}}
+                {{/if}}
+
+                <input type="hidden" value="{{_id}}" name="id">
+                <button class="btn-btn-small" type="submit">Save</button>
+            </label>
+        </form>
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>No Heroes!</p>
+{{/if}}

@@ -5,8 +5,8 @@ const Hero = new Schema({
     realname: { type: String, trim: true, required: true},
     origin_description: { type: String, trim: true, required: true},
     superpowers: { type: String, trim: true, required: true},
-    catch_phares: { type: String, trim: true, required: true},
-    image: { type: Boolean, default: false}
+    catch_phrase: { type: String, trim: true, required: true},
+    image: { type: Boolean, default: true}
 },
     {timestamps: true}
 )

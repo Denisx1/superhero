@@ -5,7 +5,7 @@ const { Hero } = require('../database')
 const newHeroicValidator = (req, res, next) => {
     try {
         const { error, value } = validHero.newHeroicJoiSchema.validate(req.body)
-       
+        
         if (error) {
             next(new Error('111'))
             return
@@ -22,15 +22,15 @@ const newHeroicValidator = (req, res, next) => {
 const checkNickNameIsDublicate = async(req, res, next)=>{
     try{
         const { nickname = '' } = req.body
-
+       
         if(!nickname){
-            next(new Error())
+            next(new Error('your are no nickname'))
         }
         
-        const isHeroPresent = await Hero.findOne({nickname: nickname.toLowerCase().trim()})
+        const heroSee = await Hero.findOne({nickname: nickname.toLowerCase().trim()})
 
-        if(isHeroPresent){
-            next(new Error ('This user is Exists'))
+        if(heroSee){
+            next(new Error ('This Hero is Exists'))
         }
         next()
     }catch(e){

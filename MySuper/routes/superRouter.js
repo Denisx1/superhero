@@ -1,9 +1,13 @@
 const { Router } = require('express')
+
 const herroMiddlewares = require('../middlewares/superMiddlewares') 
 const herroControllers = require('../controllers/heroController') 
 
 
 const superRouter = Router()
+superRouter.get('/', herroControllers.getAllHero)
+
+superRouter.get('/create', herroControllers.getStaticCreate)
 
 superRouter.post('/create', herroMiddlewares.newHeroicValidator, herroMiddlewares.checkNickNameIsDublicate, herroControllers.createHero)
 
